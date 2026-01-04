@@ -39,7 +39,7 @@ In conservation, this is a key issue to consider, as missing alleles can lead to
 ### The solution(s)
 
 
-These problems only exist because we assume the assigned genotypes are true after doing some. Filtering low-coverage positions is one way to avoid genotyping errors. The visualisation below shows what happens when filtering out low-overage positions in an individual sequenced at an average coverage of 5 and another at a mean coverage of 20.  While filtering out reads with fewer than 8-10 reads might provide datasets with high confidence in the genotypes, it discards a significant amount of information in low-coverage datasets.
+These problems only exist because we assume the assigned genotypes are true after doing some. Filtering low-coverage positions is one way to limit genotyping errors. The visualisation below shows what happens when filtering out low-overage positions in an individual sequenced at an average coverage of 5 and another at a mean coverage of 20.  While filtering out reads with fewer than 8-10 reads might provide datasets with high confidence in the genotypes, it discards a significant amount of information in low-coverage datasets.
 <p align="center">
   
   <img width="515" height="350" alt="image" src="https://github.com/user-attachments/assets/8c305955-f231-4fd1-949d-1aa079b02064" />
