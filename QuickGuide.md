@@ -6,9 +6,9 @@ This document serves as a very quick guide to estimating relatedness in a popula
 
 ### Introduction
 
-Low-coverage whole-genome resequencing data is quickly becoming popular in evolutionary genomics, maximising the maximum number of individuals that can be sequenced by spreading sequencing output over as many individuals as possible, reducing the costs ([Lou et al., 2021](https://onlinelibrary.wiley.com/doi/full/10.1111/mec.16077?casa_token=45yrJURA9_sAAAAA%3ATtiPTr-hOKZK3rsfwuRqpQhT__4TWP-EL6_zP_nZVx8yf7lU9-QG2Kwj85wpit2RzBkV6n5wFDuduVaeYg)).
+Low-coverage whole-genome resequencing data is quickly becoming popular in evolutionary genomics, maximising the number of individuals that can be sequenced and reducing the costs ([Lou et al., 2021](https://onlinelibrary.wiley.com/doi/full/10.1111/mec.16077?casa_token=45yrJURA9_sAAAAA%3ATtiPTr-hOKZK3rsfwuRqpQhT__4TWP-EL6_zP_nZVx8yf7lU9-QG2Kwj85wpit2RzBkV6n5wFDuduVaeYg)).
 
-This approach has considerable merit. Ultimately, the first read covering a specific genomic location provides the most information about the genotype at a single position. The subsequent reads can only confirm the information provided by the first read, uncover a polymorphism, or, much more rarely, reveal a sequencing error.
+This approach has considerable merit. Ultimately, the first read covering a specific genomic location provides a lot of information about the genotype at a single position. The subsequent reads can confirm the information provided by the first read, uncover a polymorphism, or, much more rarely, reveal a sequencing error.
 
 ....
 
