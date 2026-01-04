@@ -14,28 +14,42 @@ This approach has considerable merit. Ultimately, the first read covering a spec
 
 ### The issue
 
-Low-coverage sequencing yields less information per genomic location within an individual. The primary issue with low-coverage sequencing data is that it is possible to miss alleles, as genotypes are only informed by a limited number of reads at each position.
+Low-coverage sequencing yields less information per genomic location within an individual. The primary issue with low-coverage sequencing data is that it is possible to miss alleles, as genotypes are only informed by a limited number of reads at each position. 
 
-<img width="515" height="350" alt="missingalleles" src="https://github.com/user-attachments/assets/bed1857e-2d4b-4308-96cc-19a5e9f42fa1" />
+One read only carries one allele. At a depth of one, a heterozygote position cannot be identified, and all heterozygotes are missed. At a depth of two, half of the heterozygous position samples display the same allele twice. In our quick sampling [simulations](missingalleles.R), assuming random sampling and no sequencing errors, heterozygous positions have a 6.3% chance of being missed at a depth of 5 and only a 0.2% chance at a depth of 10. 
 
-One read only carries one allele. At a depth of one, a heterozygote position cannot be identified, and all heterozygotes are missed. At a depth of two, half of the heterozygous position samples display the same allele twice. In our simulations, assuming random sampling and no sequencing errors, alleles have a 6.3% chance of being missed at a depth of 5 and only a 0.2% chance at a depth of 10. 
 
-In conservation, this is a key issue to consider in conservation, as missing alleles can lead to overestimating homozygosity and inbreeding. From a relatedness point of view,  missing alleles lead to underestimating allele sharing and relatedness
 
-...
+<p align="center">
+  <img width="515" height="350" alt="missingalleles"
+       src="https://github.com/user-attachments/assets/bed1857e-2d4b-4308-96cc-19a5e9f42fa1" />
+</p>
+
+
+In conservation, this is a key issue to consider, as missing alleles can lead to overestimating homozygosity and inbreeding, leading to a spurious relationship between individual coverage and inbreeding. In the conceptual visualisation below, individuals with less coverage are inferred to have more inbreeding as more heterozygotes are missed.
+
+
+<p align="center">
+
+  <img width="515" height="350" alt="corcoverageinbreeding" src="https://github.com/user-attachments/assets/c8585607-c961-4930-a283-2524f0bc9ef1" />
+
+</p>
+
 
 ### The solution(s)
 
 
-These problem only exists because we assume the assigned genotype is true after doing some filtering CALLED GENOTYPE. The quick simulation above shows that filtering out positions with fewer than 8-10 reads might provide datasets with high confidence in the genotypes. In large genomes or polymorphic species, this approach may be effective, but it discards a significant amount of information in low-coverage datasets.
+These problems only exist because we assume the assigned genotypes are true after doing some. Filtering low-coverage positions is one way to avoid genotyping errors. The visualisation below shows what happens when filtering out low-overage positions in an individual sequenced at an average coverage of 5 and another at a mean coverage of 20.  While filtering out reads with fewer than 8-10 reads might provide datasets with high confidence in the genotypes, it discards a significant amount of information in low-coverage datasets.
+<p align="center">
+  
+  <img width="515" height="350" alt="image" src="https://github.com/user-attachments/assets/8c305955-f231-4fd1-949d-1aa079b02064" />
 
-...
+</p>
 
-We saw earlier that even with a few reads, we already have a lot of information about the genotype. If we account for the uncertainty in the genotype, then we can easily obtain much better estimates of relatedness.
 
-Fortunately, pipelines working with genotype likelihood instead of assigned genotypes are implemented in the ANGSD software (CIT) and the attached NGSRelate (CIT). https://github.com/ANGSD/NgsRelate?tab=readme-ov-file
+We saw earlier that even with a handful of reads, we already have a lot of information about the genotype. If we account for the uncertainty in the genotype, then we can easily obtain much better estimates of relatedness.
 
-https://www.popgen.dk/angsd/index.php/ANGSD
+Fortunately, pipelines working with genotype likelihood instead of assigned genotypes are implemented in the [ANGSD](https://www.popgen.dk/angsd/index.php/ANGSD) software ([Korneliussen et al., 2014](https://link.springer.com/article/10.1186/s12859-014-0356-4)) and the attached [NGSRelate](https://github.com/ANGSD/NgsRelate) package. ([Korneliussen et al., 2014](https://academic.oup.com/bioinformatics/article/31/24/4009/198242?login=false)). 
 
 The key idea...
 
