@@ -1,4 +1,4 @@
-<img width="2062" height="1415" alt="missingalleles" src="https://github.com/user-attachments/assets/bed1857e-2d4b-4308-96cc-19a5e9f42fa1" />## A quick guide to estimating relatedness from low-coverage WGS data
+## A quick guide to estimating relatedness from low-coverage WGS data
 
 ### Objective 
 
@@ -16,7 +16,7 @@ This approach has considerable merit. Ultimately, the first read covering a spec
 
 Low-coverage sequencing yields less information per genomic location within an individual. The primary issue with low-coverage sequencing data is that it is possible to miss alleles, as genotypes are only informed by a limited number of reads at each position.
 
-![](img/missingalleles.png)
+<img width="515" height="350" alt="missingalleles" src="https://github.com/user-attachments/assets/bed1857e-2d4b-4308-96cc-19a5e9f42fa1" />
 
 One read only carries one allele. At a depth of one, a heterozygote position cannot be identified, and all heterozygotes are missed. At a depth of two, half of the heterozygous position samples display the same allele twice. In our simulations, assuming random sampling and no sequencing errors, alleles have a 6.3% chance of being missed at a depth of 5 and only a 0.2% chance at a depth of 10. 
 
