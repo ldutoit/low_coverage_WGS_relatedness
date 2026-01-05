@@ -1,5 +1,5 @@
 ## A quick guide to estimating relatedness from low-coverage WGS data
-
+**Ludovic Dutoit, 2026**
 ### Objective 
 
 This document serves as a very quick guide to estimating relatedness in a population using low-coverage whole-genome resequencing data. After outlining the main issue with low coverage in the context of relatedness estimation, I provide two solutions and examples of the classic outputs of those existing pipelines. The code used to generate the figures is provided, yet they  are intended as conceptual illustrations and do not represent empirical data. 
