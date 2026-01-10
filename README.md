@@ -6,4 +6,8 @@ The working pipeline presented is outlined in this [Quick Guide](QuickGuide.md) 
 
 The code creating the foundation for estimating relatedness from low-coverage whole-genome resequencing data is provided in [lowcov_pipeline.md](lowcov_pipeline.md)
 
-...ADD a heatmap and a social network...
+
+<p align="center">
+  <img width="515" height="350" alt="Relatedness amtric"
+      src="https://github.com/user-attachments/assets/2be89593-fecb-4064-abb2-f50b9e68eaeb" />
+</p>
