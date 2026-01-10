@@ -1,12 +1,20 @@
-*In Progress*
-The code below outlines the main steps of such an analysis, which can be scaffolded into a tailorpipeline depending on the specific of your experimental desing and your research questions.
+# Low-coverage pipeline
 
-FastQC
+The code below outlines the main steps necessary ot obtain relatedness files from raw data. As such, it is more a guide than an actual pipeline. Yet, it could easily converted
 
-Cleaning
+<p align="center">
 
-Aligning
+<img width="463" height="443" alt="image" src="https://github.com/user-attachments/assets/c2f86447-8551-4527-be7c-468868ef74a4" />
 
-Run ANGSD
+</p>
 
-Run NGSRelate
+
+## Quality control
+
+## Adapter cleaning
+
+## Aligning to reference genome
+
+## Run ANGSD
+
+## Run NGSRelate
