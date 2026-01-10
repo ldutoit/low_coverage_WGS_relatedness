@@ -8,6 +8,6 @@ This repository describes a simple pipeline for inferring relatedness in low-cov
 
 
 <p align="center">
-  <img width="800" height="600" alt="Relatedness amtric"
+  <img width="600" height="400" alt="Relatedness amtric"
       src="https://github.com/user-attachments/assets/2be89593-fecb-4064-abb2-f50b9e68eaeb" />
 </p>
