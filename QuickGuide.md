@@ -8,9 +8,7 @@ This document serves as a very quick guide to estimating relatedness in a popula
 
 Low-coverage whole-genome resequencing data is quickly becoming popular in evolutionary genomics, maximising the number of individuals that can be sequenced and reducing the costs ([Lou et al., 2021](https://onlinelibrary.wiley.com/doi/full/10.1111/mec.16077?casa_token=45yrJURA9_sAAAAA%3ATtiPTr-hOKZK3rsfwuRqpQhT__4TWP-EL6_zP_nZVx8yf7lU9-QG2Kwj85wpit2RzBkV6n5wFDuduVaeYg)).
 
-This approach has considerable merit. Ultimately, the first read covering a specific genomic location provides a lot of information about the genotype at a single position. The subsequent reads can confirm the information provided by the first read, uncover a polymorphism, or, much more rarely, reveal a sequencing error.
-
-....
+This approach has considerable merit. Ultimately, the first read covering a specific genomic location provides a lot of information about the genotype at a single position. The subsequent reads are limited to confirming the information provided by the first read (most common), occasionally uncovering a polymorphism, or, much more rarely, revealing a sequencing error.
 
 ### The issue
 
@@ -26,20 +24,12 @@ One read only carries one allele. At a depth of one, a heterozygote position can
 </p>
 
 
-In conservation, this is a key issue to consider, as missing alleles can lead to overestimating homozygosity and inbreeding, leading to a spurious relationship between individual coverage and inbreeding. In the conceptual visualisation below, individuals with less coverage are inferred to have more inbreeding as more heterozygotes are missed.
-
-
-<p align="center">
-
-  <img width="515" height="350" alt="corcoverageinbreeding" src="https://github.com/user-attachments/assets/c8585607-c961-4930-a283-2524f0bc9ef1" />
-
-</p>
-
+As alleles are missed, most pipelines lead to an underestimation of relatedness ([Popli et al., 2023](https://pmc.ncbi.nlm.nih.gov/articles/PMC9843908/)).
 
 ### The solution(s)
 
 
-These problems only exist because we assume the assigned genotypes are true after doing some. Filtering low-coverage positions is one way to limit genotyping errors. The visualisation below shows what happens when filtering out low-overage positions in an individual sequenced at an average coverage of 5 and another at a mean coverage of 20.  While filtering out reads with fewer than 8-10 reads might provide datasets with high confidence in the genotypes, it discards a significant amount of information in low-coverage datasets.
+One key problem is that we assume the assigned genotypes after variant discovery are true. Filtering low-coverage positions is one way to limit genotyping errors. The visualisation below shows what happens when filtering out low-overage positions in an individual sequenced at an average coverage of 5 and another at a mean coverage of 20.  While filtering out reads with fewer than 8-10 reads might provide datasets with high confidence in the genotypes, it discards a significant amount of information in low-coverage datasets.
 <p align="center">
   
   <img width="515" height="350" alt="image" src="https://github.com/user-attachments/assets/8c305955-f231-4fd1-949d-1aa079b02064" />
@@ -47,15 +37,10 @@ These problems only exist because we assume the assigned genotypes are true afte
 </p>
 
 
-We saw earlier that even with a handful of reads, we already have a lot of information about the genotype. If we account for the uncertainty in the genotype, then we can easily obtain much better estimates of relatedness.
+We saw earlier that even with a handful of reads, we already have a lot of information about the genotype. If we account for the uncertainty in the genotype, then we can, in theory, easily obtain much better estimates of relatedness.
 
 Fortunately, pipelines working with genotype likelihood instead of assigned genotypes are implemented in the [ANGSD](https://www.popgen.dk/angsd/index.php/ANGSD) software ([Korneliussen et al., 2014](https://link.springer.com/article/10.1186/s12859-014-0356-4)) and the attached [NGSRelate](https://github.com/ANGSD/NgsRelate) package. ([Korneliussen et al., 2014](https://academic.oup.com/bioinformatics/article/31/24/4009/198242?login=false)). 
 
-The key idea...
+**A working pipeline for such an analysis is presented in [lowcov_pipeline.md](lowcov_pipeline.md).**
 
-Those estimates can also be computed.
-
-### Outputs
-
-Outputs... stats... heatmap, network... correlates..
-
+It is essential to note that, despite this approach, issues still arise when estimating relatedness([Lin et al., 2025](https://pmc.ncbi.nlm.nih.gov/articles/PMC12732940/)). However, should one be more interested in relative estimates rather than assigning exact parentage, then this would be an excellent pipeline. Further, known relationships can also be used to calibrate obtained estimates and assist in assigning exact parentage (especially 2nd and 3rd degree).
