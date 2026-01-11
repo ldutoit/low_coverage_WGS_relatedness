@@ -5,7 +5,7 @@ The code below outlines the main steps necessary ot obtain relatedness files fro
 
 <p align="center">
 
-  <img width="939" height="443" alt="corcoverageinbreeding" src="https://github.com/user-attachments/assets/bf201dc4-ea98-4764-9a50-4c7828951787" />
+<img width="1123" height="347" alt="image" src="https://github.com/user-attachments/assets/fe2a486f-e21b-4350-91bc-8e7f4cc35aa2" />
 
 </p>
 
